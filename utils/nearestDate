@@ -1,14 +1,11 @@
 module.exports = function (listOfBdays, date){
       let nearestDate = listOfBdays[0];
-    //   console.log(date, new Date(date).getTime());
       let diff = Math.abs(new Date(date).getTime()-new Date(nearestDate.birthdate).getTime());
-      listOfBdays.forEach(bday => {
-            // console.log(bday.name, bday.birthdate, new Date(bday.birthdate).getTime());          
+      listOfBdays.forEach(bday => {          
             if(Math.abs(new Date(date).getTime()-new Date(bday.birthdate).getTime())<diff)
             {
                 nearestDate = bday
                 diff=Math.abs(new Date(date).getTime()-new Date(nearestDate.birthdate).getTime());
-                console.log(bday.name, diff);
             } 
         });
         return nearestDate; 
